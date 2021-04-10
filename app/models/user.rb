@@ -3,4 +3,6 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :reviewed_posts, through: :reviews, source: :bottle
     has_many :categories, through: :bottles
+
+    has_secure_password
 end
