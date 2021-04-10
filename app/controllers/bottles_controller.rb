@@ -5,4 +5,20 @@ class BottlesController < ApplicationController
     def new
         @bottle = Bottle.new 
     end
+
+    def create
+        @bottle = current_user.bottle.build(bottle_params)
+        if @bottle.save
+            redirect_to bottles_path
+        else
+            render :new
+        end
+    end
+
+    private
+
+    def bottle_params 
+        params.require(:bottle).permit(:name, :type, :vintage, :region, :notes, :description)
+    end
+
 end
