@@ -1,23 +1,17 @@
 <h1>Post about a bottle</h1>
 
 <%= form_for(@bottle) do |f| %>
-   Wine Name:
-    <%= f.text_field :name %>
+   Wine Name: <%= f.text_field :name %>
     <br>
-    Type:
-    <%= f.text_field :type %>
+    Type: <%= f.text_field :type %>
     <br>
-    Vintage:
-    <%= f.text_field :vintage %>
+    Vintage: <%= f.text_field :vintage %>
     <br>
-    Region:
-    <%= f.text_field :region %>
+    Region: <%= f.text_field :region %>
     <br>
-    Tasting Notes:
-    <%= f.text_area :notes %>
+    Tasting Notes: <%= f.text_area :notes %>
     <br>
-    Description:
-    <%= f.text_area :description %>
+   Description: <%= f.text_area :description %>
     <br>
-    <%= f.submit "Create Post" %>
+    <%= f.submit %>
 <% end %>
