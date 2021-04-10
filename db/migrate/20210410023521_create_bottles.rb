@@ -5,7 +5,7 @@ class CreateBottles < ActiveRecord::Migration[6.1]
       t.string :type
       t.integer :vintage
       t.string :region
-      t.string :review
+      t.string :notes
       t.belongs_to :user, null: false, foreign_key: true
       t.belongs_to :category, null: false, foreign_key: true
 

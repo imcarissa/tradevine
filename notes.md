@@ -1,4 +1,4 @@
-Model scaffold:
+Model blueprint:
 
 
 Bottle    * join table for reviews & users
@@ -16,13 +16,20 @@ User
 - has_many :bottles
 - has_many :reviews
 - has_many :reviewed_posts, through :reviews, source: :bottle
-    - name
+** has_many :categories, through: :bottles
+    - username
     - email
     - password_digest
 
 
 
-Reviews  * join table for users and bottles
+review  * join table for users and bottles
 - belongs_to :user
 - belongs_to :bottle
     - content
+
+
+** Categories
+- has_many :bottles
+- has_many :users, through: :bottles
+- name
