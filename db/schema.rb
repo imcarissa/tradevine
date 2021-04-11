@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_064555) do
+ActiveRecord::Schema.define(version: 2021_04_10_035414) do
 
   create_table "bottles", force: :cascade do |t|
-    t.string "name"
-    t.string "type"
+    t.string "wine_name"
+    t.string "wine_type"
     t.integer "vintage"
     t.string "region"
-    t.string "notes"
+    t.string "t_notes"
+    t.string "comments"
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "description"
     t.index ["category_id"], name: "index_bottles_on_category_id"
     t.index ["user_id"], name: "index_bottles_on_user_id"
   end
