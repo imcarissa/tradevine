@@ -2,10 +2,6 @@ class BottlesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
 
-    def index
-        @bottles = Bottle.all
-    end
-
     def new
         @bottle = Bottle.new 
     end
@@ -19,6 +15,10 @@ class BottlesController < ApplicationController
         end
     end
 
+    def index
+        @bottles = Bottle.all
+    end
+
     def show
         @bottle = Bottle.find_by_id(params[:id])
     end
@@ -26,7 +26,7 @@ class BottlesController < ApplicationController
     private
 
     def bottle_params 
-        params.require(:bottle).permit(:name, :type, :vintage, :region, :notes, :description)
+        params.require(:bottle).permit(:wine_name, :wine_type, :vintage, :region, :t_notes, :comments)
     end
 
 end
