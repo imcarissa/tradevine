@@ -33,3 +33,7 @@ review  * join table for users and bottles
 - has_many :bottles
 - has_many :users, through: :bottles
 - name
+
+
+
+__ Remove Vintage, description
