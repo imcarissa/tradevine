@@ -1,5 +1,8 @@
 <h1>All Bottles</h1>
 
-<% @bottles.each do |b| %>
-    <%= link_to b.wine_name, bottle_path(b) %> - <%= b.wine_name %>
-<% end %>
+<h5> created on <%= @bottle.wine_name %></h5> by <em><%= @bottle.user.username %></em></h5></p>
+<br>
+<br>
+<p><strong>Name of Wine:</strong> <%= @bottle.wine_name %></p>
+<p><strong>Type:</strong> <%= @bottle.region %>
+<p><strong>Vintage:</strong> <%= @bottle.description %></p>
