@@ -1,4 +1,9 @@
-<h1>Write a Review</h1>
+<% if @post %>
+<h1>Write a review for <%= @bottle.name %></h1>
+<% else %>
+<h1>Write a review</h1>
+<% end %>
+
 
 <%= form_for([@bottle, @review]) do |f| %>
     <% if !@bottle %>
