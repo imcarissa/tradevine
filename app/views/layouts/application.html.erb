@@ -10,16 +10,27 @@
   </head>
 
   <body>
-  <div>
+  <div class="navigation">
+    <p align="center">
       <% if logged_in? %>
-        <%= link_to "Post a Bottle", new_bottle_path %> |
-        <%= link_to "All Bottles", bottles_path %> |
-        <%= link_to "Logout", logout_path, method:"delete" %>
+      <%= link_to "Post a bottle", new_bottle_path %> |
+      <%= link_to "All bottles", bottles_path %> |
+      <%= link_to "Add A Review", new_review_path %> |
+      <%= link_to "Logout", logout_path, method: "delete" %>
       <% else %>
-        <%= link_to "Sign Up", signup_path %>
+        <%= link_to "Sign Up", signup_path %> |
         <%= link_to "Login", login_path %>
       <% end %>
     </div>
+
+    <div class="wrapper">
+
+      <% if flash[:message] %>
+        <h3 style="color: rgb(57, 11, 150);"><em><%= flash[:message] %></h3></em>
+      <% end %>
+      <% if flash[:errors] %>
+        <h3 style="color: rgb(199, 28, 28);"><em><%= flash[:errors] %></h3></em>
+      <% end %>
 
     <%= yield %>
   </body>
