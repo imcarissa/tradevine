@@ -1,11 +1,14 @@
 <h1>Write a Review</h1>
 
-
-< drop down menu collection goes here >
+<%= form_for([@bottle, @review]) do |f| %>
+    <% if !@bottle %>
+        <%= f.label :bottle %>
+        <%= f.collection_select :bottle_id, Bottle.all, :id, :wine_name %>
+    <% end %>
 <br>
 <br>
-<%= form_for(@review) do |f| %>
-    <%= f.text_area :content %>
-    <br>
+<br>
+    Review<br>
+    <%= f.text_area :content %><br>
     <%= f.submit "Submit" %>
 <% end %>
