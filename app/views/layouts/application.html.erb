@@ -13,9 +13,9 @@
   <div class="navigation">
     <p align="center">
       <% if logged_in? %>
-      <%= link_to "Post a bottle", new_bottle_path %> |
+      <%= link_to "Submit a bottle", new_bottle_path %> |
       <%= link_to "All bottles", bottles_path %> |
-      <%= link_to "Add A Review", new_review_path %> |
+      <%= link_to "Leave A Review", new_review_path %> |
       <%= link_to "Logout", logout_path, method: "delete" %>
       <% else %>
         <%= link_to "Sign Up", signup_path %> |
