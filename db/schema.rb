@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_105142) do
 
   create_table "bottles", force: :cascade do |t|
     t.string "wine_name"
-    t.string "region"
     t.string "t_notes"
     t.integer "user_id", null: false
     t.integer "category_id", null: false
