@@ -3,6 +3,6 @@
 <%= form_for(@bottle) do |f| %>
     Wine Name: <%= f.text_field :wine_name %><br>
     Region: <%= f.text_field :region %><br>
-    Tasting Notes: <%= f.text_area :t_notes %><br>
+    Description: <%= f.text_area :description %><br>
     <%= f.submit %>
 <% end %>
