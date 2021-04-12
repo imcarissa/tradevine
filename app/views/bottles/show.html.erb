@@ -1,0 +1,12 @@
+<h1><%= @bottle.wine_name %></h1>
+<h1>by: <%= @bottle.user.username %></h1>
+
+<div><%= @bottle.content %></div>
+
+<P><%= link_to "See all reviews" bottle_reviews_path(@bottle) %></P>
+<P><%= link_to "Add a new comment" new_bottle_comment_path(@bottle) %></P>
+
+<h4>reviews:</h4>
+<% @bottle.reviews.each do |b| %>
+    <li><strong><%= b.user.username %></strong> says <%= link_to b.content, review_path(b) %></li>
+<% end %>
