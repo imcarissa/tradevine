@@ -20,13 +20,6 @@ class UsersController < ApplicationController
       redirect_to '/' if !@user
     end
 
-    def edit
-
-    end
-
-    def update
-
-    end
 
     private
 
