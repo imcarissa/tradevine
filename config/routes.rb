@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   resources :reviews
   
   resources :users do
-    resources :posts, only: [:new, :create, :index]
+    resources :posts, shallow: true
   end
   
   resources :bottles do
-    resources :reviews, only: [:new, :create, :index]
+    resources :reviews
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
