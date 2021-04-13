@@ -3,7 +3,12 @@ class BottlesController < ApplicationController
 
 
     def new
-        @bottle = Bottle.new 
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @bottle = @user.bottles.build
+          else
+            flash[:errors] = "Post does not exist" if params[:user_id]
+            @bottle = Bottle.new
+          end
     end
 
     def create
@@ -16,7 +21,12 @@ class BottlesController < ApplicationController
     end
 
     def index
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+          @bottle = @user.bottles 
+      else
+        flash[:errors] = "Post does not exist" if params[:user_id]
         @bottles = Bottle.all
+      end
     end
 
     def show
