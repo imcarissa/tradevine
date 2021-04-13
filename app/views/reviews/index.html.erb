@@ -1,0 +1,14 @@
+<% if @bottle %>
+  <h1>Reviews for <%= @bottle.wine_name %></h1>
+<% else %>
+  <h1>All Reviews</h1>
+<% end %>
+
+<ul>
+<% @reviews.each do |r| %>
+  <li><strong><%= link_to r.bottle.wine_name, bottle_path(r.bottle_id) %></strong></li>
+  <strong><small>by <%= r.user.username %></small></strong>: "<%= r.content%>"
+  <br>
+  <br>
+<% end %>
+</ul>
