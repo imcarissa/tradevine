@@ -3,26 +3,26 @@ class BottlesController < ApplicationController
 
 
     def new
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @bottle = @user.bottles.build
-          else
-            flash[:errors] = "Post does not exist" if params[:user_id]
-            @bottle = Bottle.new
-          end
+      if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        @bottle = @user.bottles.build
+      else
+        flash[:errors] = "Post does not exist" if params[:user_id]
+        @bottle = Bottle.new
+      end
     end
 
     def create
         @bottle = current_user.bottles.build(bottle_params)
         if @bottle.save
-            redirect_to bottles_path
+           redirect_to bottles_path
         else
-           redirect_to new_bottle_path
+           redirect_to :new
         end
     end
 
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
-          @bottle = @user.bottles 
+          @bottles = @user.bottles 
       else
         flash[:errors] = "Post does not exist" if params[:user_id]
         @bottles = Bottle.all
