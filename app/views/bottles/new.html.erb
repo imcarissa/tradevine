@@ -2,7 +2,9 @@
 
 <%= form_for(@bottle) do |f| %>
     Wine Name: <%= f.text_field :wine_name %><br>
+    Vintage: <%= f.text_field :vintage %><br>
     Region: <%= f.text_field :region %><br>
+    Winery: <%= f.text_field :winery %><br>
     Description: <%= f.text_area :description %><br>
     <%= f.submit %>
 <% end %>
