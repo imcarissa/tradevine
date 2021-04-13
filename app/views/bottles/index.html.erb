@@ -1,7 +1,6 @@
-<h1>All Bottles</h1>
-
+<h1>INDEX of Bottles</h1>
 <ul>
     <% @bottles.each do |b|%>
-      <li><%= link_to b.wine_name, bottle_path %>
+      <li><%= link_to b.wine_name, new_bottle_path(@bottle) %>
     <% end %>
 </ul>
