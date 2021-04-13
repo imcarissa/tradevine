@@ -1,11 +1,11 @@
 <% if @review.bottle %>
-<h1>New Comment for <%= @review.bottle.title %></h1>
+<h1>New Review for <%= @review.bottle.title %></h1>
 <% else %>
-<h1>New Comment</h1>
+<h1>New Review</h1>
 <% end %>
 
 
-<% if @comment.errors.any? %>
+<% if @review.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(review.errors.count, "error") %> prohibited this from being saved:</h2>
 
@@ -27,7 +27,7 @@
     <% end %> 
     <br>
     <br>
-    Comment: <%= f.text_area :content%>
+    Review: <%= f.text_area :content%>
     <br>
     <br>
     <%= f.submit %>
