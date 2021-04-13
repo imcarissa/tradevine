@@ -30,21 +30,37 @@ class ReviewsController < ApplicationController
     end
   
       def show
-        @review = Review.find_by(id: params[:id])
+        set_review
       end
   
       def edit
-        @review = Review.find_by(id: params[:id])
+        set_review
       end
   
       def update 
-      
+        set_review
+        if @review.update(review_params)
+          redirect_to review_path(@comment)
+        else
+          render :edit
+        end
       end
+
+  #  def destroy
+  #    set_comment
+  #    @comment.destroy
+  #    flash[:message] = "Your entry as been deleted."
+  #    redirect_to posts_path
+  #  end
   
         private
   
       def review_params 
           params.require(:review).permit(:content)
+      end
+
+      def set_review
+        @review = Review.find_by(id: params[:id])
       end
 
   end
