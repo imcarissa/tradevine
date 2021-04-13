@@ -3,7 +3,7 @@
 <small>by <%= @review.user.username %></small>
 <br>
 <br>
-Original post: <%= link_to @review.post.wine_name, bottle_path(@review.post_id) %>
+Original post: <%= link_to @review.bottle.wine_name, bottle_path(@review.post_id) %>
 <br>
 <Br>
 ## Edit comment<br>
