@@ -8,5 +8,5 @@
 
 <h4>Reviews:</h4>
 <% @bottle.reviews.each do |b| %>
-    <li><strong><%= b.user.username %></strong> says <%= link_to b.description, review_path(b) %></li>
+    <li><strong><%= b.user.username %></strong> says <%= link_to b.review, review_path(b) %></li>
 <% end %>
