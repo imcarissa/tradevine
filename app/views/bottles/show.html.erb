@@ -1,12 +1,16 @@
-<h1><%= @bottle.wine_name %></h1>
-<small>by: <%= @bottle.user.username %></small>
-
-<div><%= @bottle.description %></div>
-
-<P><%= link_to "See all reviews" bottle_reviews_path(@bottle) %></P>
-<P><%= link_to "Leave a review" new_bottle_review_path(@bottle) %></P>
-
-<h4>Reviews:</h4>
-<% @bottle.reviews.each do |b| %>
-    <li><strong><%= b.user.username %></strong> says <%= link_to b.review, review_path(b) %></li>
+<strong><%= @bottle.wine_name %></strong>
+<br><small>written by: <%= @bottle.user.username %></small>
+<br>
+<h3><%= @bottle.description %></h3>
+<br>
+<br>
+<h4>Comments:</h4>
+<% @bottle.reviews.each do |r| %>
+<li>
+    <%= link_to r.content, review_path(r) %><br>
+    <small>by <strong><%= r.user.username %></strong> </small>
+</li>
 <% end %>
+
+<P><%= link_to "Leave a review" new_bottle_review_path(@bottle) %></P>
+<P><%= link_to "See all reviews" bottle_reviews_path(@bottle) %></P>
