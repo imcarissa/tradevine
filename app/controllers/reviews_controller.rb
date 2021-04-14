@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   
     def new
       if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id])
-        @review = @bottle.reviews.build(review_params)
+        @review = @bottle.reviews.build
       else
         flash[:errors] = "This post does not exist" if params[:bottle_id]
         @review = Review.new
@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to review_path
         else
-            redirect_to bottles_path
+            render :new
         end
     end
   
