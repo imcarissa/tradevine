@@ -20,7 +20,7 @@
 
 <%= form_for([@review.bottle, @review]) do |f| %>
     <% if !@review.bottle %>
-        <%= f.label :post %>
+        <%= f.label :bottle %>
         <%= f.collection_select :bottle_id, Bottle.all, :id, :wine_name %>
     <% else %>
         <%= f.hidden_field :bottle_id %>
