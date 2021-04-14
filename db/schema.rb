@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_024848) do
+ActiveRecord::Schema.define(version: 2021_04_14_165754) do
 
   create_table "bottles", force: :cascade do |t|
     t.string "wine_name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_04_13_024848) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "uid"
   end
 
   add_foreign_key "bottles", "categories"
