@@ -16,7 +16,7 @@ class BottlesController < ApplicationController
         if @bottle.save
            redirect_to bottles_path
         else
-           redirect_to :new
+           render :new
         end
     end
 
