@@ -3,8 +3,15 @@
 <%= form_for :user do |f| %>
 
     <%= f.label :username %>
-    <%= f.text_field :username %> |
+    <%= f.text_field :username %>
+    <br>
     <%= f.label :password %>
-    <%= f.password_field :password %> |
+    <%= f.password_field :password %>
+    <br>
     <%= f.submit "Login" %>
+<% end %>
+<br>
+<br>
+<%= form_tag("/auth/google_oauth2") do %>
+    <%= submit_tag "Login with Google" %>
 <% end %>
