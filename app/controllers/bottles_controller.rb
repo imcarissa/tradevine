@@ -12,7 +12,7 @@ class BottlesController < ApplicationController
     end
 
     def create
-        @bottle = current_user.bottles.build(bottle_params)
+      @bottle = current_user.bottles.build(bottle_params)
         if @bottle.save
            redirect_to bottles_path
         else
