@@ -1,30 +1,13 @@
 class CategoriesController < ApplicationController
     
     def index
-
+        @categories = Category.all.includes(:posts)
     end
-
+    
+    def show
+        @category = Category.find_by_id(params[:id])
+    end
+    
     def new
-
-    end
-
-    def create
-
-    end
-
-    def show 
-
-    end
-
-    def edit
-
-    end
-
-    def update 
-
-    end
-
-    def destroy
-        
     end
 end
