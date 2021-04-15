@@ -5,7 +5,7 @@
 <% end %>
 
 
-<%= render partial: "layouts/_errors" locals: (object: @review) %>
+<%= render partial: "layouts/errors", locals: {object: @review} %>
 
 
 <%= form_for([@review.bottle, @review]) do |f| %>
