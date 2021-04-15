@@ -6,7 +6,7 @@ class BottlesController < ApplicationController
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
         @bottle = @user.bottles.build
       else
-        flash[:errors] = "Post does not exist" if params[:user_id]
+        flash[:errors] = "bottle does not exist" if params[:user_id]
         @bottle = Bottle.new
       end
     end
@@ -15,7 +15,7 @@ class BottlesController < ApplicationController
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
           @bottles = @user.bottles.alpha
       else
-        flash[:errors] = "Post does not exist" if params[:user_id]
+        flash[:errors] = "bottle does not exist" if params[:user_id]
         @bottles = Bottle.alpha
       end
     end
@@ -25,8 +25,24 @@ class BottlesController < ApplicationController
         if @bottle.save
            redirect_to bottles_path
         else
-           redirect_to new_bottle_path
+           render :new
         end
+    end
+
+    def edit
+      @bottle = Bottle.find_by_id(params[:id])
+      redirect_to bottles_path if !@bottle || @bottle.user != current_user
+      @bottle.build_category if !@bottle.category
+    end
+  
+    def update
+       @bottle = bottle.find_by(id: params[:id])
+       redirect_to bottles_path if !@bottle || @bottle.user != current_user
+      if @bottle.update(bottle_params)
+        redirect_to bottle_path(@bottle)
+      else
+        render :edit
+      end
     end
 
 
