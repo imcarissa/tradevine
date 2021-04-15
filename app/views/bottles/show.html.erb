@@ -2,14 +2,18 @@
 <br><small>written by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></small>
 <br>
 <br>
-<strong>Description:</strong><%= @bottle.description %></br>
+<strong>Vintage:</strong><%= @bottle.vintage %><br>
+<strong>Winery:</strong><%= @bottle.winery %><br>
+<strong>Region:</strong><%= @bottle.region %><br>
+<strong>Description:</strong><%= @bottle.description %><br>
+<br>
 <br>
 <br>
 <h4>Reviews:</h4>
 <% @bottle.reviews.each do |r| %>
 <li>
-    "<%= link_to r.content, bottle_review_path(@bottle, r) %>"<br>
-    <small>by <strong><%= r.user.username %></strong> </small>
+    <small>by <strong><%= r.user.username %></strong> </small><br>
+    "<%= link_to r.content, bottle_review_path(@bottle, r) %>"
 </li>
 <% end %>
 
