@@ -5,6 +5,7 @@ class BottlesController < ApplicationController
     def new
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
         @bottle = @user.bottles.build
+        @bottle.build_category
       else
         flash[:errors] = "bottle does not exist" if params[:user_id]
         @bottle = Bottle.new
@@ -12,8 +13,8 @@ class BottlesController < ApplicationController
     end
     
     def index
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-          @bottles = @user.bottles.alpha
+      if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        @bottles = @user.bottles.alpha
       else
         flash[:errors] = "bottle does not exist" if params[:user_id]
         @bottles = Bottle.alpha
@@ -54,7 +55,7 @@ class BottlesController < ApplicationController
     private
 
     def bottle_params 
-        params.require(:bottle).permit(:wine_name, :vintage, :winery, :region, :description, :category_id, categories_attributes: [:name])
+        params.require(:bottle).permit(:wine_name, :vintage, :winery, :region, :description, :category_id, category_attributes: [:name])
     end
 
 end
