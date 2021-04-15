@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   get '/logout', to: "sessions#destroy"
 
+  get '/auth/:provider/callback', to: "sessions#omniauth"
+
   resources :categories, only: [:index, :show]
   
   resources :reviews
