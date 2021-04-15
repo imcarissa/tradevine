@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
+
     def index
         if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id])
           @reviews = @bottle.reviews 
@@ -9,8 +10,7 @@ class ReviewsController < ApplicationController
           @reviews = Review.all
         end
     end
-  
-  
+    
     def new
       if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id])
         @review = @bottle.reviews.build
@@ -19,11 +19,12 @@ class ReviewsController < ApplicationController
         @review = Review.new
       end
     end
-  
+    
+
     def create
         @review = current_user.reviews.build(review_params)
         if @review.save
-            redirect_to review_path
+            redirect_to reviews_path
         else
             render :new
         end
@@ -38,7 +39,6 @@ class ReviewsController < ApplicationController
       end
   
       def update 
-        set_review
         if @review.update(review_params)
           redirect_to review_path(@review)
         else
@@ -46,17 +46,11 @@ class ReviewsController < ApplicationController
         end
       end
 
-  #  def destroy
-  #    set_review
-  #    @review.destroy
-  #    flash[:message] = "Your entry as been deleted."
-  #    redirect_to bottles_path
-  #  end
   
         private
   
       def review_params 
-          params.require(:review).permit(:content)
+          params.require(:review).permit(:content, :bottle_id)
       end
 
       def set_review
