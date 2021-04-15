@@ -14,8 +14,11 @@
     <p align="center">
       <% if logged_in? %>
       <%= link_to "Submit a bottle", new_bottle_path %> |
-      <%= link_to "All bottles", bottles_path %> |
+      <%= link_to "All Bottles", bottles_path %> |
+      <%= link_to "My Bottles", user_bottles_path(current_user) %> |
+      <%= link_to "All Categories", categories_path %> |
       <%= link_to "Leave A Review", new_review_path %> |
+      <%= link_to "Home", user_path(current_user )%> |
       <%= link_to "Logout", logout_path, method: "delete" %>
       <% else %>
         <%= link_to "Sign Up", signup_path %> |
