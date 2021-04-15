@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.clear
+    session.clear
         redirect_to root_path
     end
 
@@ -26,11 +26,12 @@ class SessionsController < ApplicationController
           flash[:errors] = "Please log in"
           redirect_to login_path
       end
-  end
+    end
 
-  private
+    private
 
-  def auth
+    def auth
       request.env[‘omniauth.auth’]
-  end
+    end
+
 end
