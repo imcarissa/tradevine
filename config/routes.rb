@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   get '/logout', to: "sessions#destroy"
 
-  resources :categories
+  resources :categories, only: [:index, :show]
   
   resources :reviews
   
   resources :users do
-    resources :posts, shallow: true
+    resources :bottles, shallow: true
   end
   
   resources :bottles do
