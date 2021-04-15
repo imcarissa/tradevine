@@ -1,11 +1,9 @@
-<h1>INDEX of Bottles</h1>
+<h1>INDEX of BOTTLES</h1>
 <ul>
-    <% @bottles.each do |b| %>
-      <li><%= link_to b.wine_name, bottle_path(b) %> - <%= b.reviews.size %> comments
-          Vintage: <%= b.vintage %><br>
-          Region: <%= b.region %><br>
-          Winery: <%= b.winery %><br>
-          Description <%= b.description %><br>     
+    <li>Wine Name:<%= @bottle.wine_name%>
+        Vintage: <%= @bottle.vintage %><br>
+        Region: <%= @bottle.region %><br>
+        Winery: <%= @bottle.winery %><br>
+        Description <%= @bottle.description %><br>     
       </li>
-    <% end %>
 </ul>
