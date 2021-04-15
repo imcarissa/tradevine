@@ -1,0 +1,23 @@
+<h1>Edit <%= @bottle.wine_name %></h1>
+
+<%= render partial: "layouts/errors", locals: {object: @bottle} %>
+
+<%= form_for(@bottle) do |f| %>
+     
+    Choose a category: <%= f.collection_select :category_id, Category.all, :id, :name %>
+  
+    Or create a new category:
+    <%= f.fields_for :category do |c| %>
+        <% c.text_field :name %>
+    <% end %>
+
+
+    <br><br>
+    Wine Name: <%= f.text_field :wine_name %><br>
+    Vintage: <%= f.text_field :vintage %><br>
+    Region: <%= f.text_field :region %><br>
+    Winery: <%= f.text_field :winery %><br>
+    Description: <%= f.text_area :description %>
+    <br><br>
+    <%= f.submit %>
+<% end %>
