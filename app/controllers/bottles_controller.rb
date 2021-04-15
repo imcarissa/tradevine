@@ -22,7 +22,6 @@ class BottlesController < ApplicationController
 
     def create
       @bottle = current_user.bottles.build(bottle_params)
-      binding.pry
         if @bottle.save
            redirect_to bottles_path
         else
