@@ -40,17 +40,17 @@ class ReviewsController < ApplicationController
       def update 
         set_review
         if @review.update(review_params)
-          redirect_to review_path(@comment)
+          redirect_to review_path(@review)
         else
           render :edit
         end
       end
 
   #  def destroy
-  #    set_comment
-  #    @comment.destroy
+  #    set_review
+  #    @review.destroy
   #    flash[:message] = "Your entry as been deleted."
-  #    redirect_to posts_path
+  #    redirect_to bottles_path
   #  end
   
         private
