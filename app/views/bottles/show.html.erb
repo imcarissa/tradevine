@@ -1,13 +1,14 @@
-<strong><%= @bottle.wine_name %></strong>
-<br><small>written by: <%= @bottle.user.username %></small>
-<br>
-<h3><%= @bottle.description %></h3>
+<h3><%= @bottle.wine_name %></h3>
+<br><small>written by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></small>
 <br>
 <br>
-<h4>Comments:</h4>
+<strong>Description:</strong><%= @bottle.description %></br>
+<br>
+<br>
+<h4>Reviews:</h4>
 <% @bottle.reviews.each do |r| %>
 <li>
-    <%= link_to r.content, review_path(r) %><br>
+    "<%= link_to r.content, bottle_review_path(@bottle, r) %>"<br>
     <small>by <strong><%= r.user.username %></strong> </small>
 </li>
 <% end %>
