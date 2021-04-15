@@ -1,0 +1,7 @@
+<h1><%= @category.name %></h1>
+
+<ul>
+    <% @category.bottles.each do |b| %>
+      <li><%= link_to b.wine_name, bottle_path(b)  %></li>
+    <% end  %>
+</ul>
