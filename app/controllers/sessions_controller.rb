@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     def omniauth
       @user = User.find_with_omniauth(auth)
       if @user
-          session[:user_id] = @user_id
+          session[:user_id] = @user.id
           redirect_to bottles_path
       else
           flash[:errors] = "Please log in"
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
     private
 
     def auth
-      request.env[‘omniauth.auth’]
+      request.env['omniauth.auth']
     end
 
 end
