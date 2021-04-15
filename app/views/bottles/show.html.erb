@@ -1,21 +1,24 @@
-<h3><%= @bottle.wine_name %></h3>
-<br><small>written by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></small>
+<h1>Your Bottles</h1>
+
+
+<h3><u><%= @bottle.wine_name %></h3></u> - <small>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></small>
+<br>
+<strong>Vintage:</strong> <%= @bottle.vintage %><br>
+<strong>Winery:</strong> <%= @bottle.winery %><br>
+<strong>Region:</strong> <%= @bottle.region %><br>
+<strong>Description:</strong> <%= @bottle.description %><br>
 <br>
 <br>
-<strong>Vintage:</strong><%= @bottle.vintage %><br>
-<strong>Winery:</strong><%= @bottle.winery %><br>
-<strong>Region:</strong><%= @bottle.region %><br>
-<strong>Description:</strong><%= @bottle.description %><br>
+<% if @bottle.user == current_user %>
+<h4><%= link_to "Edit Post", edit_bottle_path(@bottle)%></h4>
+<% end %>
 <br>
+<%= link_to "Leave a Review", new_review_path(@bottle) %>
 <br>
-<br>
-<h4>Reviews:</h4>
+<h3>Reviews:</h3>
 <% @bottle.reviews.each do |r| %>
 <li>
     <small>by <strong><%= r.user.username %></strong> </small><br>
     "<%= link_to r.content, bottle_review_path(@bottle, r) %>"
 </li>
 <% end %>
-
-<P><%= link_to "Leave a review" new_bottle_review_path(@bottle) %></P>
-<P><%= link_to "See all reviews" bottle_reviews_path(@bottle) %></P>
