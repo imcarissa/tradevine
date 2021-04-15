@@ -8,7 +8,7 @@ class Bottle < ApplicationRecord
   scope :alpha, -> { order(:wine_name) }
  # scope :most_comments, -> joins(:reviews).group('bottles.id').order('count(bottles.id) desc')
   
-  def category_attributes(attr)
+  def category_attributes=(attr)
     self.category = Category.find_or_create_by(attr) if !attr[:name].blank?
   end
 
