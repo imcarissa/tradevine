@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
     
     def index
-        @categories = Category.all.includes(:posts)
+        @categories = Category.all.includes(:bottles)
     end
     
     def show
