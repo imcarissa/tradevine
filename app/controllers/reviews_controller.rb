@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     end
     
     def new
-      if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id])
+      if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id]) && !current_user
         @review = @bottle.reviews.build
       else
         flash[:errors] = "This post does not exist" if params[:bottle_id]
@@ -46,7 +46,7 @@ class ReviewsController < ApplicationController
     def show
     end
 
-    
+
     def destroy
       Review.find(params[:id]).destroy
       redirect_to reviews_path
