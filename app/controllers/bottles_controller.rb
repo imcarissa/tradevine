@@ -1,5 +1,6 @@
 class BottlesController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_bottle, only: [:show, :edit, :update]
 
 
     def new
@@ -31,13 +32,11 @@ class BottlesController < ApplicationController
     end
 
     def edit
-      set_bottle
       redirect_to bottles_path if !@bottle || @bottle.user != current_user
       @bottle.build_category if !@bottle.category
     end
   
     def update 
-       set_bottle
        redirect_to bottles_path if !@bottle || @bottle.user != current_user
       if @bottle.update(bottle_params)
         redirect_to bottle_path(@bottle)
@@ -48,7 +47,6 @@ class BottlesController < ApplicationController
 
 
     def show
-        set_bottle
         redirect_to bottles_path if !@bottle
     end
 
