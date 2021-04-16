@@ -7,6 +7,7 @@
 
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
+
 <%= form_for([@review.bottle, @review]) do |f| %>
     <% if !@review.bottle %>
         <%= f.label :bottle %>
@@ -23,6 +24,9 @@
     <br>
     <%= f.submit %>
 <% end %>
+
+
+
 
 
  
