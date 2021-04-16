@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_review, only: [:show, :edit, :update]
+    before_action :redirect_if_not_reviewer, only: [:show, :edit, :update]
 
 
     def index
@@ -18,8 +20,7 @@ class ReviewsController < ApplicationController
         flash[:errors] = "This post does not exist" if params[:bottle_id]
         @review = Review.new
       end
-    end
-    
+    end   
 
     def create
         @review = current_user.reviews.build(review_params)
@@ -29,23 +30,21 @@ class ReviewsController < ApplicationController
             render :new
         end
     end
-  
-      def show
-        set_review
+    
+    def edit
+      redirect_to reviews_path if !@review || @review.user != current_user
+    end
+    
+    def update 
+      if @review.update(review_params)
+        redirect_to review_path(@review)
+      else
+        render :edit
       end
-  
-      def edit
-        set_review
-      end
-  
-      def update 
-        if @review.update(review_params)
-          redirect_to review_path(@review)
-        else
-          render :edit
-        end
-      end
-
+    end
+    
+    def show
+    end
   
         private
   
@@ -55,6 +54,13 @@ class ReviewsController < ApplicationController
 
       def set_review
         @review = Review.find_by(id: params[:id])
+        if !@review
+          flash[:errors] = "Review not found."
+          redirect_to reviews_path
+        end
       end
 
+      def redirect_if_not_reviewer
+        redirect_to reviews_path if @review.user != current_user
+     end
   end
