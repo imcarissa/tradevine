@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_review, only: [:show, :edit, :update]
 
 
     def index
@@ -44,9 +43,4 @@ class ReviewsController < ApplicationController
       def review_params 
           params.require(:review).permit(:content, :bottle_id)
       end
-
-      def set_review
-        @review = Review.find_by(id: params[:id])
-      end
-
   end
