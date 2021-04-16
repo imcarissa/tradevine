@@ -19,7 +19,7 @@ bundle install
 ```
 This is will download all the correct gems needed. After everything is correctly installed in  the terminal enter 
 ```sh  
-    $ rail s 
+rail s 
 ```
 After the server has correctly started, navigate to http://localhost:3000
 
