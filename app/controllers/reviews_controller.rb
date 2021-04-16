@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
     def index
         if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id])
-          @reviews = @bottle.reviews 
+          @reviews = @bottle.reviews
         else
           flash[:errors] = "bottle does not exist" if params[:bottle_id]
           @reviews = Review.all
@@ -46,6 +46,7 @@ class ReviewsController < ApplicationController
     def show
     end
 
+    
     def destroy
       Review.find(params[:id]).destroy
       redirect_to reviews_path
@@ -59,10 +60,6 @@ class ReviewsController < ApplicationController
 
       def set_review
         @review = Review.find_by(id: params[:id])
-        if !@review
-          flash[:errors] = "Review not found."
-          redirect_to reviews_path
-        end
       end
 
       def redirect_if_not_reviewer
