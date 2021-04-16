@@ -1,7 +1,4 @@
-<h1>Your Bottles</h1>
-
-
-<h3><u><%= @bottle.wine_name %></h3></u> - <small>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></small>
+<h1><u><%= @bottle.wine_name %></h1></u> - <small>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></small>
 <br>
 <strong>Vintage:</strong> <%= @bottle.vintage %><br>
 <strong>Winery:</strong> <%= @bottle.winery %><br>
