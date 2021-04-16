@@ -5,10 +5,10 @@
 <% end %>
 <br>
 <ul>
-<% @reviews.each do |r| %>
-  <li><strong><%= link_to r.bottle.wine_name, bottle_path(r.bottle_id) %></strong></li>
-  <strong><%= r.user.username %> says:</strong> "<%= r.content%>"
-  <br>
-  <br>
-<% end %>
+  <% @reviews.each do |r| %>
+    <li><strong><%= link_to r.bottle.wine_name, bottle_path(r.bottle_id) %></strong></li>
+    <strong><%= r.user.username %> says:</strong> "<%= r.content%>"
+    <br>
+    <br>
+  <% end %>
 </ul>
