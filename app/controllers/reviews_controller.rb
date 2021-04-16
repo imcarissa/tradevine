@@ -30,9 +30,9 @@ class ReviewsController < ApplicationController
     end
     
     def edit
-      redirect_to reviews_path if !@review || @review.user != current_user
     end
     
+
     def update 
       if @review.update(review_params)
         redirect_to bottle_review_path(@review)
@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
 
 
     def show
-      redirect_to reviews_path if !@review || @review.user != current_user
+      redirect_to bottle_review_path if !@review
     end
 
 
@@ -55,10 +55,10 @@ class ReviewsController < ApplicationController
         private
   
       def review_params 
-          params.require(:review).permit(:content, :bottle_id)
+        params.require(:review).permit(:content, :bottle_id)
       end
 
       def set_review
-        @review = Review.find_by(params[:id])
-        end
+        @review = Review.find_by_id(params[:id])
+      end
   end
