@@ -1,14 +1,17 @@
-<small>By: <%= @review.user.username %>:</small>
+
+Original Posting: <%= link_to @review.bottle.wine_name, bottle_path(@review.bottle_id) %>
+<ul>
+  <li>
+  <p><small><%= @review.user.username %> says:</small>
 <br>
-<%= @review.content %>
-<br>
+<%= @review.content %></p>
 <br>
 <% if @review.user == current_user %>
   <%= link_to "Edit Comment", edit_review_path(@review)%>
 <% end %>
-Original post: <%= link_to @review.bottle.wine_name, bottle_path(@review.post_id) %>
+  </li>
+</ul>
 <br>
-<Br>
+<%= button_to "Delete Comment", review_path(@review), method: :delete %> 
 
-## Delete comment<br>
 ## View all your comments<br>
