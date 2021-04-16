@@ -7,11 +7,9 @@ Original Posting: <%= link_to @review.bottle.wine_name, bottle_path(@review.bott
 <%= @review.content %></p>
 <br>
 <% if @review.user == current_user %>
-  <%= link_to "Edit Comment", edit_review_path(@review)%>
+  <%= link_to "Edit Review", edit_review_path(@review)%>
 <% end %>
   </li>
 </ul>
 <br>
-<%= button_to "Delete Comment", review_path(@review), method: :delete %> 
-
-## View all your comments<br>
+<%= button_to "Delete Review", review_path(@review), method: :delete %>
