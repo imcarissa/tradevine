@@ -1,6 +1,11 @@
-<h1>INDEX of all BOTTLES</h1>
-<%= @bottles.each do |b| %>
+<h1>BOTTLES INDEX</h1>
+
+<ul>
+<% @bottles.each do |b| %>
     <li>
-        <%= link_to b.wine_name, bottle_path(b) %>
+        <%= link_to b.wine_name, bottle_path(b) %><br>
+        - <%= b.reviews.count() %> reviews
     </li>
+    <br>
 <% end %>
+</ul>
