@@ -1,6 +1,6 @@
 <h1>Edit Review</h1>
 
-<%= render partial: "layouts/_errors" locals: (object: @review) %>
+<%= render partial: "layouts/errors", locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
     <%= f.label :bottle %>
