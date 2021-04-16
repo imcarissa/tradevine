@@ -1,8 +1,6 @@
 <h1>INDEX of all BOTTLES</h1>
-<ul>
 <%= @bottles.each do |w| %>
     <li>
         <%= link_to w.wine_name, bottle_path(w) %>
     </li>
 <% end %>
-</ul>
