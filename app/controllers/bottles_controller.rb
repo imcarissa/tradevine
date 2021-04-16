@@ -45,10 +45,14 @@ class BottlesController < ApplicationController
       end
     end
 
-
     def show
         redirect_to bottles_path if !@bottle
     end
+
+    def destroy
+      Bottle.find(params[:id]).destroy
+      redirect_to bottles_path
+   end
 
     private
 
