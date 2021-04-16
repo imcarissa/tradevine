@@ -1,4 +1,3 @@
-
 <h2><u><%= @bottle.wine_name %></h2></u>
 <p>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></p>
 
@@ -18,7 +17,6 @@
   <% end %>
   <p><%= link_to "Leave a Comment or Review", new_review_path(@bottle) %></p>
 <br>
-
 
 <h3>Comments & Reviews:</h3>
 <% @bottle.reviews.each do |r| %>
