@@ -10,21 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_014412) do
+ActiveRecord::Schema.define(version: 2021_04_16_191143) do
 
   create_table "bottles", force: :cascade do |t|
     t.string "wine_name"
+    t.integer "vintage"
     t.string "region"
     t.string "description"
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "vintage"
     t.string "winery"
     t.index ["category_id"], name: "index_bottles_on_category_id"
     t.index ["user_id"], name: "index_bottles_on_user_id"
-    t.index ["wine_name"], name: "index_bottles_on_wine_name"
   end
 
   create_table "categories", force: :cascade do |t|
