@@ -3,14 +3,16 @@
 <strong>Vintage:</strong> <%= @bottle.vintage %><br>
 <strong>Winery:</strong> <%= @bottle.winery %><br>
 <strong>Region:</strong> <%= @bottle.region %><br>
-<strong>Description:</strong> <%= @bottle.description %><br>
-<br>
+<strong>Description:</strong> <%= @bottle.description %>
 <br>
 <% if @bottle.user == current_user %>
-<h4><%= link_to "Edit Post", edit_bottle_path(@bottle)%></h4>
+<h4><%= link_to "Edit This Entry", edit_bottle_path(@bottle)%></h4>
+<%= button_to "Delete Entry", bottle_path(@bottle), method: :delete %> 
 <% end %>
 <br>
-<%= link_to "Leave a Review", new_review_path(@bottle) %>
+<% if @bottle.user != current_user %>
+  <%= link_to "Leave a Review", new_review_path(@bottle) %>
+<% end %>
 <br>
 <h3>Reviews:</h3>
 <% @bottle.reviews.each do |r| %>
