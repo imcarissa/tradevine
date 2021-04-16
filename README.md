@@ -6,15 +6,26 @@
   </a>
 </p>
 
-> An wine archive app for the wine connoisseur fit for collectors, sommeliers, and oenophiles that understand the verbage behind the bottle
+> An wine archive app for fit for learning information about certain bottles. Fit for collectors, sommeliers, and oenophiles that understand the verbage behind the bottle. Ideal for bars and restaurants to archive their wine list, to provide information for the staff and guests. 
 
 ### 🏠 [Homepage](http://github.com/imcarissa/tradevine)
 
 ## Install
+first, fork and clone the repository and where on your local machine. After it has been correctly cloned, navigate into the raffle_dazzle directory and in your terminal execute:
 
 ```sh
 yarn install
+bundle install
 ```
+This is will download all the correct gems needed. After everything is correctly installed in  the terminal enter 
+```sh  
+rail s 
+```
+After the server has correctly started, navigate to http://localhost:3000
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Author
 
