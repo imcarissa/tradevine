@@ -1,7 +1,7 @@
 
 <h2><u><%= @bottle.wine_name %></h2></u>
 <p>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></p>
-
+<h3>Category: <%= @bottle.category.try(:name)%></h3>
 <strong>Vintage:</strong> <%= @bottle.vintage %><br>
 <strong>Winery:</strong> <%= @bottle.winery %><br>
 <strong>Region:</strong> <%= @bottle.region %><br>
