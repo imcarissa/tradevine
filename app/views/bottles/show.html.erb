@@ -1,6 +1,8 @@
 
 <h2><u><%= @bottle.wine_name %></h2></u>
 <p>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></p>
+
+
 <h3>Category: <%= @bottle.category.try(:name)%></h3>
 <strong>Vintage:</strong> <%= @bottle.vintage %><br>
 <strong>Winery:</strong> <%= @bottle.winery %><br>
@@ -8,12 +10,16 @@
 <strong>Description:</strong> <%= @bottle.description %>
 <br>
 <br>
+
+
   <% if @bottle.user == current_user %>
     <h4><%= link_to "Edit This Entry", edit_bottle_path(@bottle)%></h4>
     <%= button_to "Delete Entry", bottle_path(@bottle), method: :delete %> 
   <% end %>
   <p><%= link_to "Leave a Comment or Review", new_review_path(@bottle) %></p>
 <br>
+
+
 <h3>Comments & Reviews:</h3>
 <% @bottle.reviews.each do |r| %>
 <li>
