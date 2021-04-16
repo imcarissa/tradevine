@@ -31,6 +31,25 @@ class BottlesController < ApplicationController
         end
     end
 
+    def edit
+      redirect_to bottles_path if !@bottle || @bottle.user != current_user
+      @bottle.build_category if !@bottle.category
+    end
+  
+    def update 
+       redirect_to bottles_path if !@bottle || @bottle.user != current_user
+      if @bottle.update(bottle_params)
+        redirect_to bottle_path(@bottle)
+      else
+        render :edit
+      end
+    end
+
+    def show
+        redirect_to bottles_path if !@bottle
+    end
+
+
     def destroy
       Bottle.find(params[:id]).destroy
       redirect_to bottles_path
