@@ -1,20 +1,19 @@
 <% if @review.bottle %>
-<h1>New Review for <%= @review.bottle.title %></h1>
+    <h1>New Review for <%= @review.bottle.wine_name %></h1>
 <% else %>
-<h1>New Review</h1>
+    <h1>New Review</h1>
 <% end %>
 
-
 <%= render partial: "layouts/errors", locals: {object: @review} %>
-
 
 <%= form_for([@review.bottle, @review]) do |f| %>
     <% if !@review.bottle %>
         <%= f.label :bottle %>
-        <%= f.collection_select :bottle_id, Bottle.all, :id, :wine_name %>
+        <%= f.collection_select :bottle_id, Bottle.alpha, :id, :wine_name %>
     <% else %>
         <%= f.hidden_field :bottle_id %>
-    <% end %> 
+    <br>
+    <% end %>
     <br>
     <br>
     Review: <%= f.text_area :content%>
