@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> An wine archive app for the wine connoisseur fit for collectors, sommeliers, and oenophiles that understand the verbage behind the bottle
+> An wine archive app for fit for learning information about certain bottles. Fit for collectors, sommeliers, and oenophiles that understand the verbage behind the bottle. Ideal for bars and restaurants to archive their wine list, to provide information for the staff and guests. 
 
 ### 🏠 [Homepage](http://github.com/imcarissa/tradevine)
 
@@ -22,12 +22,6 @@ This is will download all the correct gems needed. After everything is correctly
 rail s 
 ```
 After the server has correctly started, navigate to http://localhost:3000
-
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/RTBlanco/raffle_dazzle. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/RTBlanco/raffle_dazzle/blob/main/CODE_OF_CONDUCT.md).
-
 
 ## License
 
