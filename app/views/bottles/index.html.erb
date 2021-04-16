@@ -3,9 +3,7 @@
 <ul>
 <% @bottles.each do |b| %>
     <li>
-        <%= link_to b.wine_name, bottle_path(b) %><br>
-        - <%= b.reviews.count() %> reviews
+        <%= link_to b.wine_name, bottle_path(b) %>
     </li>
-    <br>
 <% end %>
 </ul>
