@@ -1,24 +1,33 @@
-# README
+<h1 align="center">Welcome to tradevine 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://twitter.com/imcarissa" target="_blank">
+    <img alt="Twitter: imcarissa" src="https://img.shields.io/twitter/follow/imcarissa.svg?style=social" />
+  </a>
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> An wine archive app for the wine connoisseur fit for collectors, sommeliers, and oenophiles that understand the verbage behind the bottle
 
-Things you may want to cover:
+### 🏠 [Homepage](http://github.com/imcarissa/tradevine)
 
-* Ruby version
+## Install
 
-* System dependencies
+```sh
+yarn install
+```
 
-* Configuration
+## Author
 
-* Database creation
+👤 **Carissa Sarreal**
 
-* Database initialization
+* Website: https://www.linkedin.com/in/carissasarreal/
+* Twitter: [@imcarissa](https://twitter.com/imcarissa)
+* Github: [@imcarissa](https://github.com/imcarissa)
+* LinkedIn: [@carissasarreal](https://linkedin.com/in/carissasarreal)
 
-* How to run the test suite
+## Show your support
 
-* Services (job queues, cache servers, search engines, etc.)
+Give a ⭐️ if this project helped you!
 
-* Deployment instructions
-
-* ...
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
