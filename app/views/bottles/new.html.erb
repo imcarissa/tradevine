@@ -4,7 +4,7 @@
 
 <%= form_for(@bottle) do |f| %>
      
-    Choose a category: <%= f.collection_select :category_id, Category.all, :id, :name %>
+    Choose a category: <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true%>
   
     Or create a new category:
     <%= f.fields_for :category do |c| %>
