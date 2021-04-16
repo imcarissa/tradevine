@@ -5,7 +5,7 @@ class BottlesController < ApplicationController
     def new
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
         @bottle = @user.bottles.build
-        @bottle.build_category
+        @bottle.build_category if !@bottle.category
       else
         flash[:errors] = "bottle does not exist" if params[:user_id]
         @bottle = Bottle.new
@@ -31,13 +31,13 @@ class BottlesController < ApplicationController
     end
 
     def edit
-      @bottle = Bottle.find_by_id(params[:id])
+      set_bottle
       redirect_to bottles_path if !@bottle || @bottle.user != current_user
       @bottle.build_category if !@bottle.category
     end
   
-    def update
-       @bottle = bottle.find_by(id: params[:id])
+    def update 
+       set_bottle
        redirect_to bottles_path if !@bottle || @bottle.user != current_user
       if @bottle.update(bottle_params)
         redirect_to bottle_path(@bottle)
@@ -48,7 +48,7 @@ class BottlesController < ApplicationController
 
 
     def show
-        @bottle = Bottle.find_by_id(params[:id])
+        set_bottle
         redirect_to bottles_path if !@bottle
     end
 
@@ -56,6 +56,10 @@ class BottlesController < ApplicationController
 
     def bottle_params 
         params.require(:bottle).permit(:wine_name, :vintage, :winery, :region, :description, :category_id, category_attributes: [:name])
+    end
+
+    def set_bottle
+      @bottle = Bottle.find_by_id(params[:id])
     end
 
 end
