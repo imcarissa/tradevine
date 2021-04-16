@@ -1,10 +1,7 @@
-Categories index
+<h1>Categories of Wines</h1>
 
 <ul>
 <% @categories.each do |c| %>
     <li><%= link_to c.name, category_path(c) %></li>
-    <%= @category.bottles.each do |b| %>
-        <li><%= link_to b.wine_name, bottle_path(b)%></li>
-    <% end %>
 <% end %>
 </ul>
