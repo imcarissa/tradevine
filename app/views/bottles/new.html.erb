@@ -1,5 +1,4 @@
-<h1>New Bottle Post</h1>
-
+<h1>Add a new bottle</h1>
 
 <%= render partial: "layouts/errors", locals: {object: @bottle} %>
 
@@ -7,11 +6,11 @@
      
     Choose a category: <%= f.collection_select :category_id, Category.all, :id, :name %>
   
-    <p>Or create a new category:
-    <%= f.fields_for :category do |c|%>
-        <%= c.text_field :name %>
+    Or create a new category:
+    <%= f.fields_for :category do |c| %>
+        <% c.text_field :name %>
     <% end %>
-    </p>
+
 
     <br><br>
     Wine Name: <%= f.text_field :wine_name %><br>
