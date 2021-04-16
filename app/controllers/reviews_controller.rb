@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
     
     def update 
       if @review.update(review_params)
-        redirect_to review_path(@review)
+        redirect_to bottle_review_path(@review)
       else
         render :edit
       end
@@ -43,6 +43,7 @@ class ReviewsController < ApplicationController
 
 
     def show
+      redirect_to reviews_path if !@review || @review.user != current_user
     end
 
 
@@ -59,9 +60,5 @@ class ReviewsController < ApplicationController
 
       def set_review
         @review = Review.find_by(params[:id])
-        if !@review
-          flash[:errors] = "Review not found."
-          redirect_to reviews_path
         end
-      end
   end
