@@ -1,6 +1,6 @@
 <strong><%= @review.user.username %></strong> says: - <%= @review.content %>
 
-Original Posting: <%= link_to @review.bottle.wine_name, bottle_path(@review.bottle_id) %>
+Original Posting: <%= link_to @review.bottle.wine_name, bottle_path(@review) %>
 
 <% if @review.user == current_user %>
   <p><%= link_to "Edit Review", edit_review_path(@review)%></p>
