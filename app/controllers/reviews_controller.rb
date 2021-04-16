@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
       if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id]) && !current_user
         @review = @bottle.reviews.build
       else
-        flash[:errors] = "This post does not exist" if params[:bottle_id]
         @review = Review.new
       end
     end   
