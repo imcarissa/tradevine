@@ -11,9 +11,8 @@
   <% if @bottle.user == current_user %>
     <h4><%= link_to "Edit This Entry", edit_bottle_path(@bottle)%></h4>
     <%= button_to "Delete Entry", bottle_path(@bottle), method: :delete %> 
-
-  <p><%= link_to "Leave a Comment or Review", new_review_path(@bottle) %></p>
   <% end %>
+  <p><%= link_to "Leave a Comment or Review", new_review_path(@bottle) %></p>
 <br>
 <h3>Comments & Reviews:</h3>
 <% @bottle.reviews.each do |r| %>
