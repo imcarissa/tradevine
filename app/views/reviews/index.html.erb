@@ -3,11 +3,11 @@
 <% else %>
   <h1>All Reviews</h1>
 <% end %>
-
+<br>
 <ul>
 <% @reviews.each do |r| %>
   <li><strong><%= link_to r.bottle.wine_name, bottle_path(r.bottle_id) %></strong></li>
-  <strong><small>by <%= r.user.username %></small></strong>: "<%= r.content%>"
+  <strong><%= r.user.username %> says:</strong> "<%= r.content%>"
   <br>
   <br>
 <% end %>
