@@ -1,23 +1,26 @@
-<h1><u><%= @bottle.wine_name %></h1></u> - <small>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></small>
-<br>
+
+<h2><u><%= @bottle.wine_name %></h2></u>
+<p>by: <%= link_to @bottle.user.username, user_path(@bottle.user) %></p>
+
 <strong>Vintage:</strong> <%= @bottle.vintage %><br>
 <strong>Winery:</strong> <%= @bottle.winery %><br>
 <strong>Region:</strong> <%= @bottle.region %><br>
 <strong>Description:</strong> <%= @bottle.description %>
 <br>
-<% if @bottle.user == current_user %>
-<h4><%= link_to "Edit This Entry", edit_bottle_path(@bottle)%></h4>
-<%= button_to "Delete Entry", bottle_path(@bottle), method: :delete, data: { confirm: "Are you sure?" } %> 
-<% end %>
 <br>
-<% if @bottle.user != current_user %>
-  <%= link_to "Leave a Review", new_review_path(@bottle) %>
-<% end %>
+  <% if @bottle.user == current_user %>
+    <h4><%= link_to "Edit This Entry", edit_bottle_path(@bottle)%></h4>
+    <%= button_to "Delete Entry", bottle_path(@bottle), method: :delete %> 
+  <% end %>
+
+  <% if @bottle.user != current_user %>
+    <%= link_to "Leave a Review", new_review_path(@bottle) %>
+  <% end %>
 <br>
 <h3>Reviews:</h3>
 <% @bottle.reviews.each do |r| %>
 <li>
-    <small>by <strong><%= r.user.username %></strong> </small><br>
-    "<%= link_to r.content, bottle_review_path(@bottle, r) %>"
+  by <strong><%= link_to r.user.username, bottle_review_path(@bottle, r) %></strong>:
+    "<%= r.content %>"
 </li>
 <% end %>
