@@ -1,0 +1,27 @@
+<%= form_for(@bottle) do |f| %>
+     
+    Choose a category: <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true%>
+  <br>
+    Or create a new category:
+    <%= f.fields_for :category do |c| %>
+        <% c.text_field :name %>
+    <% end %>
+<br>
+<br>
+<small><em>Write "0" for no vintage and  "?" or "NA" if not sure to fill in all fields. This can be edited later.</em></small>
+<br>
+<br>
+    Wine Name:<br>
+    <%= f.text_field :wine_name %><br>
+    Vintage:<br>
+    <%= f.text_field :vintage %><br>
+    Region:<br>
+    <%= f.text_field :region %><br>
+    Winery:<br>
+    <%= f.text_field :winery %><br>
+    Description:<br>
+    <%= f.text_area :description, cols:50, rows:10 %>
+<br>
+<br>
+    <%= f.submit %>
+<% end %>
