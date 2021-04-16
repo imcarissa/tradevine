@@ -2,14 +2,14 @@
 Original Posting: <%= link_to @review.bottle.wine_name, bottle_path(@review.bottle_id) %>
 <ul>
   <li>
-  <p><small><%= @review.user.username %> says:</small>
-<br>
-<%= @review.content %></p>
-<br>
+    <p>
+      <small><%= @review.user.username %> says:</small>
+      <br>
+      <%= @review.content %>
+    </p>
 <% if @review.user == current_user %>
-  <%= link_to "Edit Review", edit_review_path(@review)%>
+  <p><%= link_to "Edit Review", edit_review_path(@review)%></p>
+  <p><%= button_to "Delete Review", review_path(@review), method: :delete %></p>
 <% end %>
   </li>
 </ul>
-<br>
-<%= button_to "Delete Review", review_path(@review), method: :delete %>
