@@ -6,11 +6,11 @@ class BottlesController < ApplicationController
     def new
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
         @bottle = @user.bottles.build
-        @bottle.build_category if !@bottle.category
       else
         flash[:errors] = "bottle does not exist" if params[:user_id]
         @bottle = Bottle.new
       end
+        @bottle.build_category
     end
     
     def index
