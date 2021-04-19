@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       @user = User.find_with_omniauth(auth)
       if @user
           session[:user_id] = @user.id
-          redirect_to bottles_path
+          redirect_to user_path(@user)
       else
           flash[:errors] = "Please log in"
           redirect_to login_path
