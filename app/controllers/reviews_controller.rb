@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
     def create
         @review = current_user.reviews.build(review_params)
         if @review.save
+          flash[:message] = "Sucessfully created review"
             redirect_to reviews_path
         else
             render :new
@@ -34,6 +35,7 @@ class ReviewsController < ApplicationController
 
     def update 
       if @review.update(review_params)
+        flash[:message] = "Review successfully updated"
         redirect_to bottle_review_path(@review)
       else
         render :edit
