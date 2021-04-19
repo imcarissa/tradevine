@@ -17,9 +17,8 @@
     <p align="center">
       <% if logged_in? %>
       <%= link_to "Home", user_path(current_user) %> |
-      <%= link_to "Submit a bottle", new_bottle_path %> |
       <%= link_to "All Bottles", bottles_path %> |
-      <%= link_to "My Bottles", user_bottles_path(current_user) %> |
+      <%= link_to "Submit a bottle", new_bottle_path %> |
       <%= link_to "All Categories", categories_path %> |
       <%= link_to "Add A Review", new_review_path %> |
       <%= link_to "All Reviews ", reviews_path %> |
@@ -33,7 +32,7 @@
     <div class="wrapper">
 
       <% if flash[:message] %>
-        <h3 style="color: rgb(57, 11, 150);"><em><%= flash[:message] %></h3></em>
+        <h3 style="color: rgb(63, 133, 0);"><em><%= flash[:message] %></h3></em>
       <% end %>
       <% if flash[:errors] %>
         <h3 style="color: rgb(199, 28, 28);"><em><%= flash[:errors] %></h3></em>
