@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
         if params[:bottle_id] && @bottle = Bottle.find_by_id(params[:bottle_id])
           @reviews = @bottle.reviews
         else
-          flash[:errors] = "bottle does not exist" if params[:bottle_id]
           @reviews = Review.all
         end
     end

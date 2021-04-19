@@ -39,7 +39,7 @@ class BottlesController < ApplicationController
   
     def update 
       if @bottle.update(bottle_params)
-        flash[:message] = "Bottle successfully updated"
+        flash[:message] = "Entry successfully updated"
         redirect_to bottle_path(@bottle)
       else
         render :edit
