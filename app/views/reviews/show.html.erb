@@ -1,4 +1,4 @@
-Original Posting: <%= link_to @review.bottle.wine_name, bottle_path(@review) %>
+<h2>Review for: <%= link_to @review.bottle.wine_name, bottle_path(@review) %></h2>
 <br>
 <strong><%= @review.user.username %></strong> says: - <%= @review.content %>
 
