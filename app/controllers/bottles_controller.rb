@@ -25,7 +25,8 @@ class BottlesController < ApplicationController
     def create
       @bottle = current_user.bottles.build(bottle_params)
         if @bottle.save
-           redirect_to bottles_path
+           flash[:message] = "Entry successful"
+           redirect_to bottle_path(@bottle)
         else
            render :new
         end
@@ -37,8 +38,8 @@ class BottlesController < ApplicationController
     end
   
     def update 
-       redirect_to bottles_path if !@bottle || @bottle.user != current_user
       if @bottle.update(bottle_params)
+        flash[:message] = "Bottle successfully updated"
         redirect_to bottle_path(@bottle)
       else
         render :edit
