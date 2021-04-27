@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: "sessions#omniauth"
 
+  get '/vintage', to: "bottles#vintage"
+
   
   resources :bottles do
     resources :reviews
