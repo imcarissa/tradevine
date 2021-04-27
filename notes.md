@@ -37,3 +37,18 @@ review  * join table for users and bottles
 
 
 __ Remove Vintage, description
+
+
+
+Dynamic page that displays by vintage
+
+
+/bottles/vintage
+
+Bottles Index by Vintage
+
+- wine name: vintage
+
+
+- add a route to get to the vintage page
+- 
