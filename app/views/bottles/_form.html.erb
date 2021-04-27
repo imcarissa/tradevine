@@ -8,7 +8,7 @@
     <% end %>
 <br>
 <br>
-<small><em>Write "0" for no vintage and  "?" or "NA" if not sure to fill in all fields. This can be edited later.</em></small>
+<em>Write "0" for no vintage and  "?" or "NA" if not sure to fill in all fields. This can be edited later.</em>
 <br>
 <br>
     Wine Name:<br>
@@ -20,8 +20,5 @@
     Winery:<br>
     <%= f.text_field :winery %><br>
     Description:<br>
-    <%= f.text_area :description, cols:50, rows:10 %>
-<br>
-<br>
-    <%= f.submit %>
+    <%= f.text_area :description, cols:50, rows:10 %> <%= f.submit %>
 <% end %>
