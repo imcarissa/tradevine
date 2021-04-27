@@ -50,6 +50,8 @@ class BottlesController < ApplicationController
         redirect_to bottles_path if !@bottle
     end
 
+    def vintage
+    end
 
     def destroy
       Bottle.find(params[:id]).destroy
