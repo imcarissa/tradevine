@@ -7,6 +7,9 @@ class Bottle < ApplicationRecord
   accepts_nested_attributes_for :category
 
   scope :alpha, -> { order(:wine_name) }
+ # scope :year, ->(year) { where('vintage = ?', year) }
+
+  
 
   def category_attributes=(attr)
     self.category = Category.find_or_create_by(attr) if !attr[:name].blank?
