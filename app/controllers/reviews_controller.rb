@@ -62,3 +62,11 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
       end
   end
+
+
+  # search bottles index by bottle name and return matchings results
+
+  # 1 add search bar and button to bottles index
+  # 2 add a route to bring query to bottles index action
+  # 3 writing a scope method to use query to filter bottles
+  # 4 display new list of bottles
